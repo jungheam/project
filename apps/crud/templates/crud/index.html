@@ -1,11 +1,29 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('crud.static', filename='style.css')}}"/>
-    <title>장난감 대여</title>
-</head>
-<body>
-   <p class="crud">장난감 대여</p> 
-</body>
-</html>
+{% extends "crud/base.html" %}
+{% block title %}장난감 대여{% endblock %}
+{% block content %}
+<h2>장난감 대여</h2>
+
+<a href="{{url_for('crud.create_user')}}">장난감 신규 대여</a>
+<table>
+    <tr>
+        <th>번호</th>
+        <th>장난감이름</th>
+        <th>연령</th>
+        <th>구성품</th>
+        <th>장난감설명</th>
+        <th>대여여부</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>
+            <a href="{{url_for('crud.edit_user', user_id=user.number)}}">{{user.number}}</a>
+        </td>
+        <td>{{user.toyname}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.components}}</td>
+        <td>{{user.explain}}</td>
+        <td>{{user.rental}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

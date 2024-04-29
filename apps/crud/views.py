@@ -30,8 +30,40 @@ def create_user():
             age=form.age.data,
             components=form.components.data,
             explain=form.explain.data,
+            rental =form.rental.data,
         )
         db.session.add(user)
         db.session.commit()
         return redirect(url_for("crud.users"))
     return render_template("crud/create.html", form=form)
+
+@crud.route("/users")
+def users():
+    users = User.query.all()
+    return render_template("crud/index.html", users=users)
+
+@crud.route("/users/<user_id>", methods=["GET", "POST"])
+def edit_user(user_id):
+    form = UserForm()
+
+    user = User.query.filter_by(number=user_id).first()
+
+    if form.validate_on_submit():
+        user.toyname = form.toyname.data
+        user.age = form.age.data
+        user.components = form.components.data
+        user.explain = form.explain.data
+        user.rental = form.rental.data
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("crud.users"))
+    
+    return render_template("crud/edit.html", user=user, form=form)
+
+@crud.route("/users/<user_id>/delete", methods=["POST"])
+def delete_user(user_id):
+    user=User.query.filter_by(number=user_id).first()
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for("crud.users"))
+

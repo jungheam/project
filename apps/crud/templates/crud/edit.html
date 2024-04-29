@@ -1,0 +1,46 @@
+{% extends 'crud/base.html' %}
+{% block title %}대여서 편집{% endblock %}
+{% block content %}
+<h2>대여서 편집</h2>
+<form
+    action="{{url_for('crud.edit_user', user_id=user.id)}}"
+    method="POST"
+    novalidate="novalidate"
+>
+    {{form.csrf_token}}
+    <p>
+        {{form.toyname.label}} {{form.toyname(placeholder="장난감이름", value=user.toyname)}}
+    </p>
+    {% for error in form.toyname.errors %}
+    <span style="color: red;">{{error}}</span>
+    {% endfor %}
+    <p>
+        {{form.age.label}} {{form.age(placeholder="연령", value=user.age)}}
+    </p>
+    {% for error in form.age.errors %}
+    <span style="color: red;">{{error}}</span>
+    {% endfor %}
+    <p>
+        {{form.components.label}} {{form.components(placeholder="구성품")}}
+    </p>
+    {% for error in form.components.errors %}
+    <span style="color: red;">{{error}}</span>
+    {% endfor %}
+    <p>
+        {{form.explain.label}} {{form.explain(placeholder="장난감설명")}}
+    </p>
+    {% for error in form.explain.errors %}
+    <span style="color: red;">{{error}}</span>
+    {% endfor %}<p>
+        {{form.rental.label}} {{form.rental(placeholder="대여여부")}}
+    </p>
+    {% for error in form.rental.errors %}
+    <span style="color: red;">{{error}}</span>
+    {% endfor %}
+    <p><input type="submit" value="갱신" /></p>
+</form>
+<form actio="{{url_for('crud.delete_user', user_id=user.id)}}" method="POST">
+    {{form.csrf_token}}
+    <input type="submit" value="삭제">
+</form>
+{% endblock %}
