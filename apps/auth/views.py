@@ -23,6 +23,7 @@ def signup():
         user = User(
             toyname=form.toyname.data,
             age=form.age.data,
+            type=form.type.data,
             components=form.components.data,
             explain=form.explain.data,
             rental =form.rental.data,

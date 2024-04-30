@@ -31,6 +31,7 @@ def create_user():
         user = User(
             toyname=form.toyname.data,
             age=form.age.data,
+            type=form.type.data,
             components=form.components.data,
             explain=form.explain.data,
             rental =form.rental.data,
@@ -56,6 +57,7 @@ def edit_user(user_id):
     if form.validate_on_submit():
         user.toyname = form.toyname.data
         user.age = form.age.data
+        user.type = form.type.data
         user.components = form.components.data
         user.explain = form.explain.data
         user.rental = form.rental.data

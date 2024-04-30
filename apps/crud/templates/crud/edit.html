@@ -21,6 +21,13 @@
     <span style="color: red;">{{error}}</span>
     {% endfor %}
     <p>
+        {{form.type.label}} {{form.type(placeholder="유형별")}}
+    </p>
+    {% for error in form.type.errors %}
+    <span style="color: red;">{{error}}</span>
+    {% endfor %}
+    
+    <p>
         {{form.components.label}} {{form.components(placeholder="구성품")}}
     </p>
     {% for error in form.components.errors %}

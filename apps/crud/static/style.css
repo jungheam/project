@@ -63,3 +63,30 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+/* SelectField 요소의 배경색과 텍스트 색상 설정 */
+select {
+    background-color: white;
+    color: #333;
+}
+
+/* SelectField 요소의 패딩 및 테두리 설정 */
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 드롭다운 화살표 아이콘 스타일링 */
+select::-ms-expand {
+    display: none;
+}
+select::-webkit-select-placeholder {
+    color: #999;
+}
+select:-moz-placeholder {
+    color: #999;
+}
+select::-moz-placeholder {
+    color: #999;
+}
