@@ -1,7 +1,65 @@
 table {
+    margin: 0;
     border-collapse: collapse;
+    width: 100%;
 }
 
 table, th, td {
     border: 1px solid #c0c0c0;
+}
+html {
+    background-image: url("./toy.jpg");
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* 폼 요소들 간의 간격 설정 */
+p {
+    margin: 0;
+    padding-right: 10px;
+}
+
+/* 폼 컨테이너 */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+/* 라벨 스타일 */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* 제출 버튼 스타일 */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
 }

@@ -1,9 +1,8 @@
 {% extends "crud/base.html" %}
-{% block title %}장난감 대여{% endblock %}
+{% block title %}장난감 대여현황{% endblock %}
 {% block content %}
-<h2>장난감 대여</h2>
+<h2>장난감 대여현황</h2>
 
-<a href="{{url_for('crud.create_user')}}">장난감 신규 대여</a>
 <table>
     <tr>
         <th>번호</th>
@@ -16,7 +15,7 @@
     {% for user in users %}
     <tr>
         <td>
-            <a href="{{url_for('crud.edit_user', user_id=user.number)}}">{{user.number}}</a>
+            <a href="{{url_for('crud.edit_user', user_id=user.number)}}">{{user.number}}</a>            
         </td>
         <td>{{user.toyname}}</td>
         <td>{{user.age}}</td>
@@ -26,4 +25,6 @@
     </tr>
     {% endfor %}
 </table>
+<a href="{{url_for('crud.create_user')}}">장난감 신규 대여</a>
+
 {% endblock %}
